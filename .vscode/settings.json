@@ -9,5 +9,9 @@
   "stylelint.validate": ["css", "scss", "vue"],
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html"
   }
 }
