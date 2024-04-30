@@ -1,19 +1,12 @@
 /**
- * Get the dates of the current week.
+ * Returns the dates of the current week starting from Monday.
  * @returns {Array<string>} Array of dates in ISO format (YYYY-MM-DD).
  */
 export const getCurrentWeekDates = () => {
-  const dates = [];
-  const currentDate = new Date();
-
-  for (let i = 0; i <= 6; i += 1) {
-    // The first day of the week is Monday
-    const first = currentDate.getDate() - currentDate.getDay() + 1 + i;
-    const day = new Date(currentDate.setDate(first)).toISOString().slice(0, 10);
-    dates.push(day);
-  }
-
-  return dates;
+  return new Array(7).fill(new Date()).map((date, i) => {
+    const day = date.getDate() - date.getDay() + i + 1;
+    return new Date(date.setDate(day)).toISOString().slice(0, 10);
+  });
 };
 
 /**
