@@ -1,5 +1,10 @@
 <template>
-  <button class="text-2xl" type="button" @click="switchTheme()">
+  <button
+    class="text-2xl"
+    type="button"
+    @click="switchTheme()"
+    :title="isDark ? 'Toggle light mode' : 'Toggle dark mode'"
+  >
     {{ isDark ? '🌞' : '🌚' }}
   </button>
 </template>
