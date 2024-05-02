@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col items-center justify-center gap-10 px-5">
+  <main class="flex flex-col items-center justify-center gap-10 mt-10">
     <DaysNavigation :dates="getCurrentWeekDates()" />
   </main>
 </template>
