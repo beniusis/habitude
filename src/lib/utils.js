@@ -17,3 +17,12 @@ export const getCurrentWeekDates = () => {
 export const toWeekDay = (date) => {
   return new Date(date).toLocaleString('en-us', { weekday: 'short' });
 };
+
+/**
+ * Checks if the date is in the future.
+ * @param {string} date
+ * @returns {boolean} True - if the date is in the future, otherwise - false.
+ */
+export const isDayDisabled = (date) => {
+  return new Date(date).getTime() > new Date().getTime();
+};
