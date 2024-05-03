@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { isDayDisabled } from '@/lib/utils';
 import HomeView from '@/views/HomeView.vue';
 
 const router = createRouter({
@@ -16,7 +17,9 @@ const router = createRouter({
       beforeEnter: (to, _, next) => {
         const regex = /^\d{4}-\d{2}-\d{2}$/;
 
-        if (regex.test(to.params.date)) {
+        if (isDayDisabled(to.params.date)) {
+          next({ name: 'home' });
+        } else if (regex.test(to.params.date)) {
           next();
         } else {
           next({
