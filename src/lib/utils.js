@@ -1,4 +1,12 @@
 /**
+ * Returns the current date.
+ * @returns {string} Current date in ISO format (YYYY-MM-DD).
+ */
+export const getCurrentFormattedDate = () => {
+  return new Date().toISOString().slice(0, 10);
+};
+
+/**
  * Returns the dates of the current week starting from Monday.
  * @returns {Array<string>} Array of dates in ISO format (YYYY-MM-DD).
  */
