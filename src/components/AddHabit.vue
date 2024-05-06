@@ -8,20 +8,16 @@
       placeholder="Enter the name of a habit"
       v-model="habitName"
     />
-    <button
-      class="rounded-md bg-primary px-4 py-2 text-sm text-text duration-300 ease-out hover:bg-accent active:scale-95 disabled:hover:bg-primary disabled:active:scale-100"
-      type="button"
-      :disabled="habitName.length === 0"
-      @click="habits.add(habitName)"
+    <PrimaryButton :disabled="habitName.length === 0" @click="habits.add(habitName)"
+      >Add new habit</PrimaryButton
     >
-      Add new habit
-    </button>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import useHabitsStore from '@/stores/habits';
+import PrimaryButton from './PrimaryButton.vue';
 
 const habitName = ref('');
 const habits = useHabitsStore();
