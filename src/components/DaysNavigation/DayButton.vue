@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center gap-1">
-    <div class="select-none text-xs">
+    <div class="select-none text-xs text-text">
       {{ getMonthAndDay(date) }}
     </div>
     <button
