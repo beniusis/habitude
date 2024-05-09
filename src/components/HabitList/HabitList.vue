@@ -6,7 +6,9 @@
         <HabitItem v-for="habit in habits" :data="habit" :key="habit.id" />
       </div>
     </div>
-    <div v-else class="text-3xl text-primary">Currently there are no habits in the list!</div>
+    <div v-else class="text-center text-xl text-primary duration-300 ease-in-out sm:text-3xl">
+      Currently there are no habits in the list!
+    </div>
   </div>
 </template>
 
