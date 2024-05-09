@@ -36,3 +36,12 @@ export const toWeekDay = (date) => {
 export const isDayDisabled = (date) => {
   return new Date(date).getTime() > new Date().getTime();
 };
+
+/**
+ * Formats the string as a month and day.
+ * @param {string} date
+ * @returns {string} Month (abbreviation) and day of the date.
+ */
+export const getMonthAndDay = (date) => {
+  return new Date(date).toLocaleString('en-us', { month: 'short', day: 'numeric' });
+};
