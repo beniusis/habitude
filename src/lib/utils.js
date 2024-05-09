@@ -7,14 +7,16 @@ export const getCurrentFormattedDate = () => {
 };
 
 /**
- * Returns the dates of the current week starting from Monday.
+ * Returns the dates of the last 7 days starting from today in the reversed order.
  * @returns {Array<string>} Array of dates in ISO format (YYYY-MM-DD).
  */
-export const getCurrentWeekDates = () => {
-  return new Array(7).fill(new Date()).map((date, i) => {
-    const day = date.getDate() - date.getDay() + i + 1;
-    return new Date(date.setDate(day)).toISOString().slice(0, 10);
-  });
+export const getLastSevenDaysDates = () => {
+  return new Array(7)
+    .fill(new Date())
+    .map((date, i) => {
+      return new Date(new Date().setDate(date.getDate() - i)).toISOString().slice(0, 10);
+    })
+    .reverse();
 };
 
 /**
