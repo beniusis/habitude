@@ -1,4 +1,13 @@
 /**
+ * Formats the date to ISO format.
+ * @param {string} date
+ * @returns {string} Date in ISO format (YYYY-MM-DD).
+ */
+export const formatDate = (date) => {
+  return new Date(date).toISOString().slice(0, 10);
+};
+
+/**
  * Returns the current date.
  * @returns {string} Current date in ISO format (YYYY-MM-DD).
  */
