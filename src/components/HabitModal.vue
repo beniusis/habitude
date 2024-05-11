@@ -79,10 +79,10 @@ const saveAction = () => {
             d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
           ></path>
         </svg>
-        <h2 class="text-base font-bold capitalize sm:text-lg">{{ props.type }} habit</h2>
+        <h2 class="text-base font-bold capitalize text-text sm:text-lg">{{ props.type }} habit</h2>
         <label class="sr-only" for="habit-name">Habit name</label>
         <input
-          class="mt-2 w-full rounded-md bg-secondary px-4 py-2 text-xs text-text outline-none transition-all duration-300 ease-out placeholder:text-text sm:text-sm"
+          class="mt-2 w-full rounded-md bg-secondary px-4 py-2 text-xs text-text outline-none transition-all duration-300 ease-out placeholder:text-text placeholder:opacity-50 sm:text-sm"
           type="text"
           id="habit-name"
           placeholder="Enter the name of a habit"
