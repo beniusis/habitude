@@ -37,7 +37,7 @@ const saveAction = () => {
     habits.add(habitName.value);
     habitName.value = '';
   } else {
-    habits.edit(props.data.id, habitName);
+    habits.edit(props.data.id, habitName.value);
   }
 
   closeModal();
