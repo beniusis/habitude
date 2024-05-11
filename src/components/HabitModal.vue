@@ -3,20 +3,49 @@ import { ref } from 'vue';
 import useHabitsStore from '@/stores/habits';
 import PrimaryButton from './PrimaryButton.vue';
 
-const show = ref(false);
-const habitName = ref('');
-const { add } = useHabitsStore();
+const habits = useHabitsStore();
 
-const addHabit = () => {
-  add(habitName.value);
-  show.value = false;
-  habitName.value = '';
+const props = defineProps({
+  data: {
+    type: Object,
+    default: () => {}
+  },
+  type: {
+    type: String,
+    default: 'add'
+  },
+  isOpen: {
+    type: Boolean,
+    default: false
+  }
+});
+
+const emit = defineEmits(['closeAdd', 'closeEdit']);
+
+const habitName = ref(props.data ? props.data.name : '');
+
+const closeModal = () => {
+  if (props.type === 'add') {
+    emit('closeAdd');
+  } else {
+    emit('closeEdit');
+  }
+};
+
+const saveAction = () => {
+  if (props.type === 'add') {
+    habits.add(habitName.value);
+    habitName.value = '';
+  } else {
+    habits.edit(props.data.id, habitName);
+  }
+
+  closeModal();
 };
 </script>
 
 <template>
-  <PrimaryButton @click="show = true">Add new habit</PrimaryButton>
-  <div class="fixed inset-0 h-screen w-full bg-gray-500 bg-opacity-75" v-show="show">
+  <div class="fixed inset-0 h-screen w-full bg-gray-500 bg-opacity-75" v-show="isOpen">
     <div class="flex min-h-full items-center justify-center p-4 text-center">
       <div
         class="relative flex flex-col items-center justify-center gap-3 rounded-lg bg-background p-10"
@@ -26,7 +55,7 @@ const addHabit = () => {
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          @mousedown="show = false"
+          @mousedown="closeModal"
         >
           <path
             d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
@@ -40,8 +69,11 @@ const addHabit = () => {
           placeholder="Enter the name of a habit"
           v-model="habitName"
         />
-        <PrimaryButton class="w-full" :disabled="habitName.length === 0" @click="addHabit"
-          >Add</PrimaryButton
+        <PrimaryButton
+          class="w-full capitalize"
+          :disabled="habitName.length === 0"
+          @click="saveAction"
+          >{{ props.type }}</PrimaryButton
         >
       </div>
     </div>
