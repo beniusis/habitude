@@ -23,7 +23,9 @@ const useHabitsStore = defineStore('habits', () => {
    * @returns If the habit with the provided name already exists in the habit list.
    */
   const add = (habitName) => {
-    if (exists(habitName)) return;
+    if (exists(habitName)) {
+      throw new Error(`Habit with the name of ${habitName} already exists!`);
+    }
 
     list.value.push({
       id: list.value.length > 0 ? list.value[list.value.length - 1].id + 1 : 1,
@@ -48,7 +50,9 @@ const useHabitsStore = defineStore('habits', () => {
    * @returns If the habit with the provided name already exists in the habit list.
    */
   const edit = (id, name) => {
-    if (exists(name)) return;
+    if (exists(name)) {
+      throw new Error(`Habit with the name of ${name} already exists!`);
+    }
 
     const habit = list.value.find((h) => h.id === id);
     habit.name = name;
