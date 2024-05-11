@@ -1,6 +1,8 @@
 <template>
-  <AppHeader />
-  <RouterView />
+  <div class="min-w-[270px]">
+    <AppHeader />
+    <RouterView />
+  </div>
 </template>
 
 <script setup>
