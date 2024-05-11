@@ -50,6 +50,7 @@ const habitList = computed(() => {
       :data="habit"
       :is-completed="habit.completedAt[date]"
       :is-stoppable="true"
+      :is-continuable="true"
       :is-editable="false"
     />
   </div>

@@ -29,5 +29,5 @@ defineProps({
     </div>
   </div>
   <PrimaryButton @click="openModal = true">Add new habit</PrimaryButton>
-  <HabitModal :is-open="openModal" @close-add="openModal = false" />
+  <HabitModal :is-open="openModal" @close="openModal = false" />
 </template>

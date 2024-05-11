@@ -22,33 +22,39 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['closeAdd', 'closeEdit']);
+const emit = defineEmits(['close']);
+
+const MAX_HABIT_NAME_LENGTH = 30;
 
 const habitName = ref(props.data ? props.data.name : '');
+const initialHabitName = props.data ? props.data.name : '';
 
 const closeModal = () => {
-  if (props.type === 'add') {
-    emit('closeAdd');
-  } else {
-    emit('closeEdit');
-  }
+  emit('close');
 };
 
 const saveAction = () => {
+  if (habitName.value.length > MAX_HABIT_NAME_LENGTH) {
+    toast.warning("Habit's name must not exceed 30 characters!");
+    closeModal();
+    return;
+  }
+
   if (props.type === 'add') {
     try {
-      habits.add(habitName.value);
+      habits.add(habitName.value.trim());
       toast.success(`Habit created!`);
     } catch (error) {
-      toast.error(error);
+      toast.error(error.toString());
     }
     habitName.value = '';
   } else {
     try {
-      habits.edit(props.data.id, habitName.value);
+      habits.edit(props.data.id, habitName.value.trim());
       toast.success(`Habit's name changed!`);
     } catch (error) {
-      toast.error(error);
+      toast.error(error.toString());
+      habitName.value = initialHabitName;
     }
   }
 
@@ -83,7 +89,7 @@ const saveAction = () => {
         />
         <PrimaryButton
           class="w-full capitalize"
-          :disabled="habitName.length === 0"
+          :disabled="habitName.trim() === initialHabitName"
           @click="saveAction"
           >{{ props.type }}</PrimaryButton
         >

@@ -5,7 +5,7 @@ import ToastMessages from './components/ToastMessages/ToastMessages.vue';
 </script>
 
 <template>
-  <div class="min-w-[270px]" id="test">
+  <div class="min-w-[270px] p-4">
     <AppHeader />
     <ToastMessages />
 

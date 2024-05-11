@@ -1,5 +1,5 @@
 <script setup>
-import DatePicker from '../DatePicker.vue';
+import DatePicker from './DatePicker.vue';
 import DayButton from './DayButton.vue';
 
 defineProps({

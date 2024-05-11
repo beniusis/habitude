@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { getCurrentFormattedDate } from '@/lib/utils';
 import { useDark } from '@vueuse/core';
-import PrimaryButton from './PrimaryButton.vue';
+import PrimaryButton from '../PrimaryButton.vue';
 
 const selectedDate = ref('');
 const isDark = useDark();

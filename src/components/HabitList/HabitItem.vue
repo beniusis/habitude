@@ -22,6 +22,10 @@ defineProps({
     type: Boolean,
     default: false
   },
+  isContinuable: {
+    type: Boolean,
+    default: false
+  },
   isEditable: {
     type: Boolean,
     default: true
@@ -51,7 +55,7 @@ defineProps({
         del
       </button>
       <button
-        v-if="isStoppable"
+        v-if="isStoppable && data.stoppedAt === null"
         class="rounded-md bg-orange-500 p-1 text-xs text-text"
         type="button"
         @click="
@@ -64,6 +68,19 @@ defineProps({
         stop
       </button>
       <button
+        v-if="isContinuable && data.stoppedAt !== null"
+        class="rounded-md bg-green-500 p-1 text-xs text-text"
+        type="button"
+        @click="
+          () => {
+            habits.unstop(data.id);
+            toast.success(`Continuing to track the ${data.name} habit!`);
+          }
+        "
+      >
+        continue
+      </button>
+      <button
         v-if="isEditable"
         class="rounded-md bg-green-500 p-1 text-xs text-text"
         type="button"
@@ -73,5 +90,5 @@ defineProps({
       </button>
     </div>
   </div>
-  <HabitModal :data="data" :is-open="openModal" :type="'edit'" @close-edit="openModal = false" />
+  <HabitModal :data="data" :is-open="openModal" :type="'edit'" @close="openModal = false" />
 </template>
