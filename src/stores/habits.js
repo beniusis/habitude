@@ -84,11 +84,20 @@ const useHabitsStore = defineStore('habits', () => {
     habit.stoppedAt = formatDate(date);
   };
 
+  /**
+   * Continues to track the habit going forward.
+   * @param {number} id
+   */
+  const unstop = (id) => {
+    const habit = list.value.find((h) => h.id === id);
+    habit.stoppedAt = null;
+  };
+
   watch(list, () => {
     habitsStorage.value = list.value;
   });
 
-  return { list, add, remove, edit, update, stop };
+  return { list, add, remove, edit, update, stop, unstop };
 });
 
 export default useHabitsStore;
