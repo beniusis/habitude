@@ -1,3 +1,10 @@
+<script setup>
+import { useDark, useToggle } from '@vueuse/core';
+
+const isDark = useDark();
+const switchTheme = useToggle(isDark);
+</script>
+
 <template>
   <button
     class="text-2xl"
@@ -8,10 +15,3 @@
     {{ isDark ? '🌞' : '🌚' }}
   </button>
 </template>
-
-<script setup>
-import { useDark, useToggle } from '@vueuse/core';
-
-const isDark = useDark();
-const switchTheme = useToggle(isDark);
-</script>

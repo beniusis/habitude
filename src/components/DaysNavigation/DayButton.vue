@@ -1,3 +1,14 @@
+<script setup>
+import { getMonthAndDay, isDayDisabled, toWeekDay } from '@/lib/utils';
+
+defineProps({
+  date: {
+    type: String,
+    default: undefined
+  }
+});
+</script>
+
 <template>
   <div class="flex flex-col items-center justify-center gap-1">
     <div class="select-none text-xs text-text">
@@ -14,14 +25,3 @@
     </button>
   </div>
 </template>
-
-<script setup>
-import { getMonthAndDay, isDayDisabled, toWeekDay } from '@/lib/utils';
-
-defineProps({
-  date: {
-    type: String,
-    default: undefined
-  }
-});
-</script>

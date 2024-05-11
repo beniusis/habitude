@@ -1,3 +1,13 @@
+<script setup>
+import { ref } from 'vue';
+import { getCurrentFormattedDate } from '@/lib/utils';
+import { useDark } from '@vueuse/core';
+import PrimaryButton from './PrimaryButton.vue';
+
+const selectedDate = ref('');
+const isDark = useDark();
+</script>
+
 <template>
   <div class="flex items-center justify-center gap-2">
     <label class="sr-only" for="date-picker">Pick a date</label>
@@ -16,16 +26,6 @@
     >
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import { getCurrentFormattedDate } from '@/lib/utils';
-import { useDark } from '@vueuse/core';
-import PrimaryButton from './PrimaryButton.vue';
-
-const selectedDate = ref('');
-const isDark = useDark();
-</script>
 
 <style scoped>
 input[type='date']::-webkit-calendar-picker-indicator {

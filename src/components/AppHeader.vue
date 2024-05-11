@@ -1,3 +1,7 @@
+<script setup>
+import ThemeSwitch from './ThemeSwitch.vue';
+</script>
+
 <template>
   <header class="mt-10 flex flex-col items-center justify-center gap-5">
     <ThemeSwitch />
@@ -8,7 +12,3 @@
     </h1>
   </header>
 </template>
-
-<script setup>
-import ThemeSwitch from './ThemeSwitch.vue';
-</script>
