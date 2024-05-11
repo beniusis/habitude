@@ -1,8 +1,8 @@
 <template>
-  <header class="flex flex-col items-center justify-center gap-5 mt-10">
+  <header class="mt-10 flex flex-col items-center justify-center gap-5">
     <ThemeSwitch />
     <h1
-      class="text-5xl font-black tracking-widest text-center duration-300 ease-out select-none text-text hover:rotate-1 hover:scale-95 sm:text-6xl"
+      class="select-none text-center text-5xl font-black tracking-widest text-text duration-300 ease-out hover:rotate-1 hover:scale-95 sm:text-6xl"
     >
       <a href="/" @click.prevent="$router.push('/')">habitude</a>
     </h1>
