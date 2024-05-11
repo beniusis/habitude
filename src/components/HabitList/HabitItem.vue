@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col items-center justify-center gap-2 sm:flex-row">
     <div
-      class="text-center font-medium capitalize text-text"
+      class="text-sm font-medium text-center capitalize text-text sm:text-base"
       :class="{ 'line-through': isCompleted }"
     >
       {{ data.name }}
     </div>
     <div class="flex flex-row items-center justify-center gap-1">
       <button
-        class="rounded-md bg-red-500 p-1 text-xs text-text"
+        class="p-1 text-xs bg-red-500 rounded-md text-text"
         type="button"
         @click="habits.remove(data.id)"
       >
@@ -16,13 +16,13 @@
       </button>
       <button
         v-if="isStoppable"
-        class="rounded-md bg-orange-500 p-1 text-xs text-text"
+        class="p-1 text-xs bg-orange-500 rounded-md text-text"
         type="button"
         @click="habits.stop(data.id, $route.params.date)"
       >
         stop
       </button>
-      <button v-if="isEditable" class="rounded-md bg-green-500 p-1 text-xs text-text" type="button">
+      <button v-if="isEditable" class="p-1 text-xs bg-green-500 rounded-md text-text" type="button">
         edit
       </button>
     </div>
