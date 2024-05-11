@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import useHabitsStore from '@/stores/habits';
+import useToastStore from '@/stores/toast';
 import PrimaryButton from './PrimaryButton.vue';
 
 const habits = useHabitsStore();
+const toast = useToastStore();
 
 const props = defineProps({
   data: {
@@ -34,10 +36,20 @@ const closeModal = () => {
 
 const saveAction = () => {
   if (props.type === 'add') {
-    habits.add(habitName.value);
+    try {
+      habits.add(habitName.value);
+      toast.success(`Habit created!`);
+    } catch (error) {
+      toast.error(error);
+    }
     habitName.value = '';
   } else {
-    habits.edit(props.data.id, habitName.value);
+    try {
+      habits.edit(props.data.id, habitName.value);
+      toast.success(`Habit's name changed!`);
+    } catch (error) {
+      toast.error(error);
+    }
   }
 
   closeModal();

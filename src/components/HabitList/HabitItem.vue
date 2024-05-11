@@ -1,9 +1,11 @@
 <script setup>
 import useHabitsStore from '@/stores/habits';
+import useToastStore from '@/stores/toast';
 import { ref } from 'vue';
 import HabitModal from '../HabitModal.vue';
 
 const habits = useHabitsStore();
+const toast = useToastStore();
 
 const openModal = ref(false);
 
@@ -39,7 +41,12 @@ defineProps({
       <button
         class="rounded-md bg-red-500 p-1 text-xs text-text"
         type="button"
-        @click="habits.remove(data.id)"
+        @click="
+          () => {
+            habits.remove(data.id);
+            toast.success('Habit removed!');
+          }
+        "
       >
         del
       </button>
@@ -47,7 +54,12 @@ defineProps({
         v-if="isStoppable"
         class="rounded-md bg-orange-500 p-1 text-xs text-text"
         type="button"
-        @click="habits.stop(data.id, $route.params.date)"
+        @click="
+          () => {
+            habits.stop(data.id, $route.params.date);
+            toast.success(`Habit stopped from ${$route.params.date}!`);
+          }
+        "
       >
         stop
       </button>
