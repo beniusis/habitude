@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <main
-    class="absolute top-1/2 flex w-full -translate-y-1/2 select-none flex-col items-center justify-center"
+    class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 select-none flex-col items-center justify-center"
   >
     <h1 class="text-9xl font-black tracking-widest text-text">404</h1>
     <div class="absolute rotate-12 rounded bg-primary px-2 text-sm">Page Not Found</div>
