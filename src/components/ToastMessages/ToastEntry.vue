@@ -19,7 +19,7 @@ defineProps({
         'bg-yellow-500': status === 'warning',
         'bg-green-500': status === 'success'
       },
-      'flex w-[95%] items-center justify-center gap-2 rounded-md p-2 sm:w-fit'
+      'flex w-fit items-center justify-center gap-2 rounded-md p-2'
     ]"
   >
     <svg v-if="status === 'error'" class="fill-white" width="24" height="24" viewBox="0 0 24 24">

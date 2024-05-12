@@ -10,7 +10,7 @@ const { toasts } = storeToRefs(toast);
 <template>
   <ul
     v-if="toasts.length > 0"
-    class="fixed bottom-2 flex flex-col items-end gap-2 sm:bottom-auto sm:right-2 sm:top-2"
+    class="fixed bottom-2 flex w-full flex-col gap-2 sm:bottom-auto sm:right-2 sm:top-2 sm:w-fit sm:items-end"
   >
     <ToastEntry
       v-for="toast in toasts"
