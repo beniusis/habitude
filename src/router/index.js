@@ -3,7 +3,7 @@ import { isDayDisabled } from '@/lib/utils';
 import HomeView from '@/views/HomeView.vue';
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/habitude/'),
   routes: [
     {
       path: '/',
