@@ -1,8 +1,8 @@
-## Habitude
+# Habitude
 
 [**habitude**](https://beniusis.github.io/habitude) is a habit 🔁 tracking 📝 application that helps people stick to new daily habits, such as working out, reading, meditating and more.
 
-### Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
   - [Features](#features)
@@ -13,9 +13,9 @@
   - [Compile and Hot-Reload for Development](#compile-and-hot-reload-for-development)
   - [Lint and format](#lint-and-format)
 
-### Overview
+## Overview
 
-#### Features
+### Features
 
 - **Navigation**: users are able to navigate between days to view the habits they completed on any specific day.
 - **Habit List**: displays all daily habits. Users are able to mark or unmark them as completed in the specific day's view.
@@ -24,7 +24,7 @@
 - **Dark Mode**: users are able to switch between light/dark theme modes.
 - **Responsive Design**: ensuring a seamless user experience across all devices.
 
-#### Technologies and Tools
+### Technologies and Tools
 
 - 🖼️ **Framework**: [Vue](https://vuejs.org)
 - 😎 **Styling**: [Tailwind CSS](https://tailwindcss.com)
@@ -33,28 +33,28 @@
 - ✨ **Code Quality**: [ESLint](https://eslint.org), [Stylelint](https://stylelint.io), [Prettier](https://prettier.io)
 - 🏗️ **Build Tool**: [Vite](https://vitejs.dev)
 
-#### Screenshots
+### Screenshots
 
 ![](./screenshots/main-view.png)
 ![](./screenshots/habit-modal.png)
 ![](./screenshots/day-view.png)
 ![](./screenshots/habit-stopped.png)
 
-### Setup the Development Environment
+## Setup the Development Environment
 
-#### Install the required dependencies
+### Install the required dependencies
 
 ```sh
 npm install
 ```
 
-#### Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
 
-#### Lint and format
+### Lint and format
 
 ```sh
 npm run lint
